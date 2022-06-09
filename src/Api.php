@@ -28,7 +28,7 @@ class Api
      * @var string $api_key Your own api key from https://vudeo.io/?op=my_account
      */
     private $api_key;
-   //private $api_key = "ENTER_API_KEY";
+   //private $api_key = "ENTER_API_KEY_HERE";
 
     /**
      * Api constructor.
