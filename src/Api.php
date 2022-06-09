@@ -3,7 +3,7 @@
 /**
  * @package	vudeo.net - vudeo.io API Wrapper
  * @author	Olsion Bakiaj
- * @copyright 2022 Albdroid.AL (http://albdroid.al/)
+ * @copyright   2022 Albdroid.AL (http://albdroid.al/)
  * @license	https://opensource.org/licenses/MIT	MIT License
  * @link	https://github.com/SxtBox/Vudeo_API_Wrapper
  * @since	Version 1.0.0
