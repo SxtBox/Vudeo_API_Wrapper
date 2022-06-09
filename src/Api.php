@@ -13,7 +13,7 @@ use GuzzleHttp\Exception\GuzzleException;
 class Api
 {
     private const BASE_URL = "https://vudeo.net/api";
-	//private const BASE_URL = "https://vudeo.io/api";
+    //private const BASE_URL = "https://vudeo.io/api";
 
     /**
      * @var Client $client
@@ -24,7 +24,7 @@ class Api
      * @var string $api_key Your own api key from https://vudeo.io/?op=my_account
      */
     private $api_key;
-	//private $api_key = "ENTER_API_KEY";
+   //private $api_key = "ENTER_API_KEY";
 
     /**
      * Api constructor.
@@ -58,7 +58,7 @@ class Api
         ], $additonnalQueryParams);
 
         $uri = self::BASE_URL . $scope . '' . http_build_query($queryParameters);
-		//$uri = self::BASE_URL . $scope . '?' . http_build_query($queryParameters); // WITH AUTO QUERY
+       //$uri = self::BASE_URL . $scope . '?' . http_build_query($queryParameters); // WITH AUTO QUERY
 
         try {
             $response = $this->client->request('GET', $uri);
@@ -88,82 +88,77 @@ class Api
 
 	 public function get_direct_link($id)
     {
-		return $this->callApi("/file/direct_link?" . "file_code=" . $id ."&");
+	return $this->callApi("/file/direct_link?" . "file_code=" . $id ."&");
     }
 
-/*
-Group Account
-My Account Functions
-Account Info [GET /api/account/info?key={key}]
+    /*
+    Group Account
+    My Account Functions
+    Account Info [GET /api/account/info?key={key}]
 
-+ Parameters
+    + Parameters
     + key: 123456 (string) - API key
-*/
+    */
 	 public function get_account_info()
     {
-		return $this->callApi("/account/info?");
-		//https://vudeo.io/api/account/info?key=288myhy7yphuz40e6pv
+	return $this->callApi("/account/info?");
     }
 
-/*
-Account Stats [/api/account/stats?key={key}]
-Example: https://vudeo.net/api/account/stats?key={API_KEY}
-Account Stats [GET /api/account/stats?key={key}&last={last}]
+    /*
+    Account Stats [/api/account/stats?key={key}]
+    Example: https://vudeo.net/api/account/stats?key={API_KEY}
+    Account Stats [GET /api/account/stats?key={key}&last={last}]
 
-+ Parameters
+    + Parameters
     + key: 123456 (string) - API key
     + last (number,optional) - show stats for last X days
-        + Default: `7`
-*/
+    + Default: `7`
+    */
 	 public function get_account_stats()
     {
-		return $this->callApi("/account/stats?");
-		//https://vudeo.io/api/account/stats?key=288myhy7yphuz40e6pv
+	return $this->callApi("/account/stats?");
     }
 
 	 public function get_account_stats_last($day)
     {
-		return $this->callApi("/account/stats?" . "&last="  . $day ."&");
-		//https://vudeo.io/api/account/stats?key=288myhy7yphuz40e6pv
+	return $this->callApi("/account/stats?" . "&last="  . $day ."&");
     }
 
-/*
-Group Upload
-Upload by URL [/api/upload/url]
-Add URL to upload queue GET /api/upload/url?key={key}&url={url}
+    /*
+    Group Upload
+    Upload by URL [/api/upload/url]
+    Add URL to upload queue GET /api/upload/url?key={key}&url={url}
 
-+ Parameters
+    + Parameters
     + key: 123456 (string) - API key
     + url: http://site.com/v.mkv (url) - URL to video file
-*/
+    */
 	 public function upload($url)
     {
-		return $this->callApi("/upload/url?" . "&url="  . $url ."&");
+	return $this->callApi("/upload/url?" . "&url="  . $url ."&");
     }
 
-/*
-Get next Upload Server URL [GET /api/upload/server?key={key}]
-
-+ Parameters
+    /*
+    Get next Upload Server URL [GET /api/upload/server?key={key}]
+    + Parameters
     + key: 123456 (string) - API key
-*/
+    */
 	 public function get_uploading_server()
     {
-		return $this->callApi("/upload/server?");
+	return $this->callApi("/upload/server?");
     }
-
 
 	 public function get_file_info($file_code)
     {
-		return $this->callApi("/file/info?" . "&file_code="  . $file_code ."&");
+	return $this->callApi("/file/info?" . "&file_code="  . $file_code ."&");
     }
 
-/*
-GET ALL JSON DATA
-File List [/api/file/list]
-Get files list [GET /api/file/list{?key,page,per_page,fld_id,public,created,title}]
+    /*
+    GET ALL JSON DATA
+    File List [/api/file/list]
+    Get files list [GET /api/file/list{?key,page,per_page,fld_id,public,created,title}]
 
-+ Parameters
+    + Parameters
     + key: 123456 (string) - API key
     + page: 2 (optional,number) - page number
     + per_page: 20 (optional,number) - number of results per page
@@ -171,27 +166,27 @@ Get files list [GET /api/file/list{?key,page,per_page,fld_id,public,created,titl
     + public: 1 (optional,number) - show public (1) or private (0) files only
     + created: `2018-06-21 05:07:10` (optional,string) - show only files uploaded after timestamp. Specify number to show only files uploaded X minutes ago.
     + title: `Iron man` (optional,string) - filter video titles
-*/
+    */
 
 	public function get_file_list()
     {
-		return $this->callApi("/file/list?");
+	return $this->callApi("/file/list?");
     }
 
-/*
-Group Folders
-Folder List [/api/folder/list]
-Get folder/file list [GET /api/folder/list?key={key}&fld_id={fld_id}]
+    /*
+    Group Folders
+    Folder List [/api/folder/list]
+    Get folder/file list [GET /api/folder/list?key={key}&fld_id={fld_id}]
 
-+ Parameters
+    + Parameters
     + key: 123456 (string) - API key
     + fld_id: 15 (optional,number) - folder id
-	+ Get it from https://vudeo.io/?op=my_files&fld_id=XXX
-	XXX is folder id
-*/
+    + Get it from https://vudeo.io/?op=my_files&fld_id=XXX
+    + XXX is folder id
+    */
 	public function get_folder_list($folder_id)
     {
-		return $this->callApi("/folder/list?" . "&fld_id="  . $folder_id . "&");
+	return $this->callApi("/folder/list?" . "&fld_id="  . $folder_id . "&");
     }
 
 }
