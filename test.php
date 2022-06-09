@@ -4,7 +4,7 @@ $client = new \GuzzleHttp\Client();
 
 $api = new \Vudeo\Streaming\Api($client);
 // Your own api key from https://vudeo.io/?op=my_account
-$api->set_api_key("ENTER_API_KEY");
+$api->set_api_key("ENTER_API_KEY_HERE");
 
 // full url https://vudeo.io/aqgypxct9pmq.html
 $direct_link = $api->get_direct_link("aqgypxct9pmq"); // file id
